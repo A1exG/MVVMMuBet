@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MySportBets.Server.Service1" CodeBehind="UserValidator.svc.cs" %>
