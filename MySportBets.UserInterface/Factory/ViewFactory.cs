@@ -10,7 +10,6 @@ namespace MySportBets.UserInterface.Factory
     public class ViewFactory : IViewFactory
     {
         private IKernel _kernel;
-
         public ViewFactory(IKernel kernel)
         {
             _kernel = kernel;

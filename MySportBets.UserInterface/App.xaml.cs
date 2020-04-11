@@ -1,5 +1,4 @@
 ﻿using MySportBets.Ui.Services;
-using MySportBets.Userinterface.Auth;
 using Ninject;
 using System.Windows;
 

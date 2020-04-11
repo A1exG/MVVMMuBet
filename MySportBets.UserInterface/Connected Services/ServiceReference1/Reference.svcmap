@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="02d91698-a5b3-4b9d-b397-01ab0d1c544c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:57011/UserService/UserValidator.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserValidator.xsd" MetadataType="Schema" ID="2f651ebe-2785-4176-97ce-c4f65852d955" SourceId="1" SourceUrl="http://localhost:57011/UserService/UserValidator.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserValidator1.xsd" MetadataType="Schema" ID="f2d3e677-79d1-4f15-a898-441ad6de4a9c" SourceId="1" SourceUrl="http://localhost:57011/UserService/UserValidator.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserValidator.wsdl" MetadataType="Wsdl" ID="5764bdda-6fe7-42ff-ba85-efd9e3607f97" SourceId="1" SourceUrl="http://localhost:57011/UserService/UserValidator.svc?wsdl" />
+    <MetadataFile FileName="UserValidator.disco" MetadataType="Disco" ID="d44a64c2-2022-408b-8900-c6c3f0d56676" SourceId="1" SourceUrl="http://localhost:57011/UserService/UserValidator.svc?disco" />
+    <MetadataFile FileName="UserValidator2.xsd" MetadataType="Schema" ID="dde9f535-d753-4cec-b059-71481846db98" SourceId="1" SourceUrl="http://localhost:57011/UserService/UserValidator.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

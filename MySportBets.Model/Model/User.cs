@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MySportBets.Model.Model
 {
-    public abstract class User
+    public class User
     {
         public int UserId { get; set; }
         public string SurName { get; set; }
@@ -12,30 +12,20 @@ namespace MySportBets.Model.Model
         public DateTime Birthday { get; set; }
         public string UserLogin { get; set; }
         public string UserPass { get; set; }
-        internal virtual ICollection<Bet> Bets { get; set; }
-        public abstract string Role { get; }
-
-    }
-    public sealed class Administrator : User
-    {
-        public override string Role
-        {
-            get
-            {
-                return "Administrator";
-            }
-        }
-    }
-    public sealed class ProgrammUser : User
-    {
+        public string Role { get; set; }
         public decimal Balance { get; set; }
-        public override string Role
-        {
-            get
-            {
-                return "ProgrammUser";
-            }
-        }
-    }
+        internal virtual ICollection<Bet> Bets { get; set; }
 
+        //public User(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance)
+        //{
+        //    UserLogin = userLogin;
+        //    UserPass = userPassword;
+        //    Name = name;
+        //    SecondName = secondName;
+        //    SurName = surName;
+        //    Birthday = birthday;
+        //    Role = role;
+        //    Balance = balance;
+        //}
+    }
 }
