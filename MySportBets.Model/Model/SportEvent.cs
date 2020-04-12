@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace MySportBets.Model.Model
 {
+    [DataContract]
     public class SportEvent
     {
+        [DataMember]
         public int SportEventId { get; set; }
+        [DataMember]
         public DateTime DateEvent { get; set; }
+        [DataMember]
         public virtual string Category {get;}
+        [DataMember]
         internal virtual ICollection<Bet> Bets { get; set; }
-        public virtual string Team1 { get; set; }
-        public virtual string Team2 { get; set; }
+        [DataMember]
+        public string Team1 { get; set; }
+        [DataMember]
+        public string Team2 { get; set; }
+        [DataMember]
         public decimal Coef1 { get; set; }
+        [DataMember]
         public decimal Coef2 { get; set; }
 
         public SportEvent(DateTime dateEvent, string category, string team1, decimal coef1, string team2, decimal coef2)
@@ -23,6 +33,11 @@ namespace MySportBets.Model.Model
             Coef1 = coef1;
             Team2 = team2;
             Coef2 = coef2;
+        }
+
+        public SportEvent()
+        {
+
         }
     }
     //public class FootbolEvents : SportEvent

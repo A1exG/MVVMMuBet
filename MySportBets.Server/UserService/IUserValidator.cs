@@ -10,10 +10,9 @@ namespace MySportBets.Server.UserService
     {
         [OperationContract]
         IList<User> CheckRegUser(User user);
-
         [OperationContract]
         int RegistrationNewUser(User user);
-
+        [OperationContract]
         bool CheckLoginUser(User user);
 
     }
