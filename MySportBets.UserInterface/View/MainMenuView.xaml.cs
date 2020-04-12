@@ -8,6 +8,7 @@ namespace MySportBets.UserInterface.View
     {
         public MainMenuView()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
@@ -15,6 +16,6 @@ namespace MySportBets.UserInterface.View
         {
             get => base.DataContext as MainMenuViewModel;
             set => base.DataContext = value;
-        }
+        } 
     }
 }

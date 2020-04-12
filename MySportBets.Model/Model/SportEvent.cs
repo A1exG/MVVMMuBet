@@ -13,13 +13,13 @@ namespace MySportBets.Model.Model
         [DataMember]
         public DateTime DateEvent { get; set; }
         [DataMember]
-        public virtual string Category {get;}
+        public virtual string Category { get; }
         [DataMember]
         internal virtual ICollection<Bet> Bets { get; set; }
         [DataMember]
-        public string Team1 { get; set; }
+        public virtual string Team1 { get; set; }
         [DataMember]
-        public string Team2 { get; set; }
+        public virtual string Team2 { get; set; }
         [DataMember]
         public decimal Coef1 { get; set; }
         [DataMember]
@@ -40,72 +40,73 @@ namespace MySportBets.Model.Model
 
         }
     }
-    //public class FootbolEvents : SportEvent
-    //{
-    //    public override string Category
-    //    {
-    //        get
-    //        {
-    //            return "Footbol";
-    //        }
-    //    }
-    //    public override string Team1
-    //    {
-    //        get
-    //        {
-    //            return "Team1";
-    //        }
-    //        set
-    //        {
-    //            Team1 = value;
-    //        }
-    //    }
+    public class FootbolEvents : SportEvent
+    {
+        public override string Category
+        {
+            get
+            {
+                return "Footbol";
+            }
+        }
+        public override string Team1
+        {
+            get
+            {
+                return "Team1";
+            }
+            set
+            {
+                Team1 = value;
+            }
+        }
 
-    //    public override string Team2
-    //    {
-    //        get
-    //        {
-    //            return "Team2";
-    //        }
-    //        set
-    //        {
-    //            Team2 = value;
-    //        }
-    //    }
+        public override string Team2
+        {
+            get
+            {
+                return "Team2";
+            }
+            set
+            {
+                Team2 = value;
+            }
+        }
 
-    //}
-    //public class TennisEvents : SportEvent
-    //{
-    //    public override string Category
-    //    {
-    //        get
-    //        {
-    //            return "Tennis";
-    //        }
-    //    }
+    }
+    public class TennisEvents : SportEvent
+    {
+        public override string Category
+        {
+            get
+            {
+                return "Tennis";
+            }
+        }
 
-    //    public override string Team1
-    //    {
-    //        get
-    //        {
-    //            return "Player1";
-    //        }
-    //        set
-    //        {
-    //            Team1 = value;
-    //        }
-    //    }
+        public override string Team1
+        {
+            get
+            {
+                return "Player1";
+            }
+            set
+            {
+                Team1 = value;
+            }
+        }
 
-    //    public override string Team2
-    //    {
-    //        get
-    //        {
-    //            return "Player2";
-    //        }
-    //        set
-    //        {
-    //            Team2 = value;
-    //        }
-    //    }
-    
+        public override string Team2
+        {
+            get
+            {
+                return "Player2";
+            }
+            set
+            {
+                Team2 = value;
+            }
+        }
+
+    }
 }

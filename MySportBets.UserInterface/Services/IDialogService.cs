@@ -2,6 +2,7 @@
 using MySportBets.UserInterface.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace MySportBets.UserInterface.Services
 {
@@ -9,11 +10,12 @@ namespace MySportBets.UserInterface.Services
     {
         bool ShowDialog<TViewModel>(TViewModel viewModel)
             where TViewModel : BaseViewModel;
-
+        
         IList<User> ValidationUser(User user);
 
         bool RegistrationNewUser(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance);
 
         void ShowMessage(string message);
+
     }
 }

@@ -42,7 +42,6 @@ namespace MySportBets.Ui.Services
             _kernel.Bind<IView<RegistrationNewUserViewModel>>().To<RegistrationNewUserView>().InTransientScope();
 
 
-
             return this;
         }
         public ProgrammRunner Prepaire()

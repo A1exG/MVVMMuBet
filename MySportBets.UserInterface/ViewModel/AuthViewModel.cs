@@ -1,7 +1,10 @@
 ﻿using MySportBets.Model.Model;
 using MySportBets.UserInterface.Factory;
 using MySportBets.UserInterface.Services;
+using MySportBets.UserInterface.View;
 using NLog;
+using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MySportBets.UserInterface.ViewModel
@@ -9,6 +12,7 @@ namespace MySportBets.UserInterface.ViewModel
     public class AuthViewModel : BaseViewModel
     {
         private readonly IViewFactory viewFactory;
+
         private string _userLogin;
         private string _userPassword;
 
@@ -21,8 +25,8 @@ namespace MySportBets.UserInterface.ViewModel
 
             _showMainMenuView = new RelayCommand((x) => ShowMainMenu());
             _showRegistrationView = new RelayCommand((x) => ShowRegistation());
-        }
 
+        }
         public string UserLogin
         {
             get => _userLogin;

@@ -1,9 +1,11 @@
 ﻿using MySportBets.Model.Model;
 using MySportBets.Server.UserService;
+using MySportBets.UserInterface.View;
 using MySportBets.UserInterface.ViewModel;
 using Ninject;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace MySportBets.UserInterface.Services
 {
@@ -39,21 +41,19 @@ namespace MySportBets.UserInterface.Services
             else
             {
                 return false;
-            }
-            
+            } 
         }
 
         public bool ShowDialog<TViewModel>(TViewModel viewModel) where TViewModel : BaseViewModel
         {
             IView<TViewModel> view = kernel.Get<IView<TViewModel>>();
             view.DataContext = viewModel;
-
             return view.ShowDialog().Value;
         }
 
         public void ShowMessage(string message)
         {
-            System.Windows.MessageBox.Show(message);
+            MessageBox.Show(message);
         }
 
         public IList<User> ValidationUser(User user)

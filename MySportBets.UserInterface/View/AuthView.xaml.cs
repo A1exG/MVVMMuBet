@@ -11,11 +11,12 @@ namespace MySportBets.UserInterface.View
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
+
         }
         AuthViewModel IView<AuthViewModel>.DataContext
         {
             get => base.DataContext as AuthViewModel;
             set => base.DataContext = value;
-        }
+        }   
     }
 }
