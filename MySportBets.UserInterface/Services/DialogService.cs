@@ -19,13 +19,28 @@ namespace MySportBets.UserInterface.Services
         public bool RegistrationNewUser(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance)
         {
             UserValidator validator = kernel.Get<UserValidator>();
-            var check = validator.CheckLoginUser(userLogin);
-            if(check == 0)
+
+            User user = new User(userLogin);
+
+            var check = validator.CheckLoginUser(user);
+            if(check)
             {
-                var user = validator.RegistrationNewUser(userLogin, userPassword, name, secondName, surName, birthday, role, balance);
+                user.UserPass = userPassword;
+                user.Name = name;
+                user.SecondName = secondName;
+                user.SurName = surName;
+                user.Birthday = birthday;
+                user.Role = "ProgrammUser";
+                user.Balance = 0;
+
+                var userC = validator.RegistrationNewUser(user);
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
+            
         }
 
         public bool ShowDialog<TViewModel>(TViewModel viewModel) where TViewModel : BaseViewModel
@@ -41,10 +56,11 @@ namespace MySportBets.UserInterface.Services
             System.Windows.MessageBox.Show(message);
         }
 
-        public IList<User> ValidationUser(string login, string password)
+        public IList<User> ValidationUser(User user)
         {
             UserValidator validator = kernel.Get<UserValidator>();
-            var us = validator.CheckRegUser(login, password);
+
+            var us = validator.CheckRegUser(user);
             return us;
         }
     }

@@ -10,7 +10,7 @@ namespace MySportBets.Server.UserService
     public class UserValidator : IUserValidator
     {
         Logger logger = LogManager.GetCurrentClassLogger();
-        public IList<User> CheckRegUser(string login, string password)
+        public IList<User> CheckRegUser(User user)
         {
             try
             {
@@ -18,7 +18,7 @@ namespace MySportBets.Server.UserService
                 {
                     List<User> userL =
                         context.Users
-                        .Where(b => b.UserLogin == login.ToString() || b.UserPass == password.ToString())
+                        .Where(b => b.UserLogin == user.UserLogin || b.UserPass == user.UserPass)
                         .ToList();
                     return userL;
                 }
@@ -29,22 +29,12 @@ namespace MySportBets.Server.UserService
                 return null;
             }
         }
-        public int RegistrationNewUser(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance)
+        public int RegistrationNewUser(User user)
         {
             try
             {
                 using (var context = new MyDbContext())
                 {
-                    User user = new User();
-                    user.UserLogin = userLogin;
-                    user.UserPass = userPassword;
-                    user.Name = name;
-                    user.SecondName = secondName;
-                    user.SurName = surName;
-                    user.Birthday = birthday;
-                    user.Role = "ProgrammUser";
-                    user.Balance = 0;
-
                     context.Users.Add(user);
                     context.SaveChanges();
                     return 1;
@@ -57,7 +47,7 @@ namespace MySportBets.Server.UserService
             }
         }
 
-        public int CheckLoginUser(string login)
+        public bool CheckLoginUser(User user)
         {
             try
             {
@@ -65,15 +55,22 @@ namespace MySportBets.Server.UserService
                 {
                     List<User> userL =
                         context.Users
-                        .Where(b => b.UserLogin == login.ToString())
+                        .Where(b => b.UserLogin == user.UserLogin)
                         .ToList();
-                    return userL.Count;
+                    if(userL.Count > 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 logger.Error(ex, "Ошибка");
-                return 12345;
+                return false;
             }
         }
     }

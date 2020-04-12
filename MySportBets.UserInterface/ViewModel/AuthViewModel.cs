@@ -1,4 +1,5 @@
-﻿using MySportBets.UserInterface.Factory;
+﻿using MySportBets.Model.Model;
+using MySportBets.UserInterface.Factory;
 using MySportBets.UserInterface.Services;
 using NLog;
 using System.Windows.Input;
@@ -60,15 +61,16 @@ namespace MySportBets.UserInterface.ViewModel
         {
             if (_userLogin != null && _userPassword != null)
             {
-                var user = DialogService.ValidationUser(_userLogin, _userPassword);
-                if (user[0].Role == "Administrator")
+                User user = new User(_userLogin, _userPassword);
+                var userC = DialogService.ValidationUser(user);
+                if (userC[0].Role == "Admin")
                 {
                     MainMenuViewModel viewModel = viewFactory.Build<MainMenuViewModel>();
                     DialogService.ShowDialog<MainMenuViewModel>(viewModel);
                 }
                 else
                 {
-                    if (user[0].Role == "ProgrammUser")
+                    if (userC[0].Role == "ProgrammUser")
                     {
                         UserMainMenuViewModel viewModel = viewFactory.Build<UserMainMenuViewModel>();
                         DialogService.ShowDialog<UserMainMenuViewModel>(viewModel);

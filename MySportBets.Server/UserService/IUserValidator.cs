@@ -9,11 +9,12 @@ namespace MySportBets.Server.UserService
     public interface IUserValidator
     {
         [OperationContract]
-        IList<User> CheckRegUser(string login, string password);
+        IList<User> CheckRegUser(User user);
 
         [OperationContract]
-        int RegistrationNewUser(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance);
+        int RegistrationNewUser(User user);
 
-        int CheckLoginUser(string login);
+        bool CheckLoginUser(User user);
+
     }
 }

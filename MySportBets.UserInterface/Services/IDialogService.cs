@@ -10,7 +10,7 @@ namespace MySportBets.UserInterface.Services
         bool ShowDialog<TViewModel>(TViewModel viewModel)
             where TViewModel : BaseViewModel;
 
-        IList<User> ValidationUser(string login, string password);
+        IList<User> ValidationUser(User user);
 
         bool RegistrationNewUser(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance);
 

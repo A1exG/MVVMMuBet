@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace MySportBets.Model.Model
 {
@@ -15,17 +16,31 @@ namespace MySportBets.Model.Model
         public string Role { get; set; }
         public decimal Balance { get; set; }
         internal virtual ICollection<Bet> Bets { get; set; }
+        public User(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance)
+        {
+            UserLogin = userLogin;
+            UserPass = userPassword;
+            Name = name;
+            SecondName = secondName;
+            SurName = surName;
+            Birthday = birthday;
+            Role = role;
+            Balance = balance;
+        }
+        public User(string userLogin, string userPass)
+        {
+            UserLogin = userLogin;
+            UserPass = userPass;
+        }
 
-        //public User(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance)
-        //{
-        //    UserLogin = userLogin;
-        //    UserPass = userPassword;
-        //    Name = name;
-        //    SecondName = secondName;
-        //    SurName = surName;
-        //    Birthday = birthday;
-        //    Role = role;
-        //    Balance = balance;
-        //}
+        public User(string userLogin)
+        {
+            UserLogin = userLogin;
+        }
+
+        public User()
+        {
+
+        }
     }
 }
