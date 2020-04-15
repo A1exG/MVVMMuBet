@@ -8,14 +8,17 @@
         Title="Сделать ставку" Height="415.668" Width="550"
         >
     <Grid Margin="0,0,2,4">
-        <DataGrid x:Name="SportEvents" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" 
-                  Height="100" VerticalAlignment="Top" Width="470" Margin="10,10,5,0"
+        <DataGrid x:Name="SportEvents" Grid.Column="1" Grid.Row="1" 
+                  HorizontalAlignment="Center" VerticalAlignment="Top"
+                  Height="100"  Width="470" Margin="10,10,5,0"
                   IsReadOnly="True" CanUserAddRows="False"
-                  AutoGenerateColumns="False"
+                  AutoGenerateColumns="False" ItemsSource="{Binding Path=SportEvents}"
+                  SelectionUnit="CellOrRowHeader" SelectionMode="Single"
+                  SelectedItem="{Binding CurrentCell, Mode=OneWayToSource}"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=SportEventId}"/>
-                <DataGridHyperlinkColumn Header="Дата" Binding="{Binding Path=DateEvent}"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Path=DateEvent}"/>
                 <DataGridTextColumn Header="Категория" Binding="{Binding Path=Category}"/>
                 <DataGridTextColumn Header="Команда 1" Binding="{Binding Path=Team1}"/>
                 <DataGridTextColumn Header="Команда 2" Binding="{Binding Path=Team2}"/>

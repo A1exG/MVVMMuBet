@@ -1,7 +1,6 @@
 ﻿using MySportBets.Model.Model;
 using MySportBets.Server.GetDataService;
 using MySportBets.Server.UserService;
-using MySportBets.UserInterface.View;
 using MySportBets.UserInterface.ViewModel;
 using Ninject;
 using System;
