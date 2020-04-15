@@ -1,4 +1,6 @@
-﻿namespace MySportBets.UserInterface.Services
+﻿using System;
+
+namespace MySportBets.UserInterface.Services
 {
     public interface IView<TDataContext>
     {

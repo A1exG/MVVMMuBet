@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySportBets.Model.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,6 +13,6 @@ namespace MySportBets.Server.GetDataService
     public interface IGetDataService
     {
         [OperationContract]
-        void DoWork();
+        IList<SportEvent> GetDataEvent();
     }
 }

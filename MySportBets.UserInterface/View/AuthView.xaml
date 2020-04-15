@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySportBets.UserInterface.View"
-        mc:Ignorable="d"
-        Title="Вход в программу" Height="196.185" Width="321.798">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Вход в программу" Height="196.185" Width="321.798"
+       
+        >
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>

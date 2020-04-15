@@ -1,4 +1,5 @@
 ﻿using MySportBets.Model.Model;
+using MySportBets.Server.GetDataService;
 using MySportBets.Server.UserService;
 using MySportBets.UserInterface.View;
 using MySportBets.UserInterface.ViewModel;
@@ -16,6 +17,13 @@ namespace MySportBets.UserInterface.Services
         public DialogService(IKernel kernel)
         {
             this.kernel = kernel;
+        }
+
+        public IList<SportEvent> GetDataSportEvent()
+        {
+            GetDataService dataService = kernel.Get<GetDataService>();
+            var gdse = dataService.GetDataEvent();
+            return gdse;
         }
 
         public bool RegistrationNewUser(string userLogin, string userPassword, string name, string secondName, string surName, DateTime birthday, string role, decimal balance)
@@ -43,14 +51,12 @@ namespace MySportBets.UserInterface.Services
                 return false;
             } 
         }
-
         public bool ShowDialog<TViewModel>(TViewModel viewModel) where TViewModel : BaseViewModel
         {
             IView<TViewModel> view = kernel.Get<IView<TViewModel>>();
             view.DataContext = viewModel;
             return view.ShowDialog().Value;
         }
-
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);

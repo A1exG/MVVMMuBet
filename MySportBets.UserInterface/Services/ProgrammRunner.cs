@@ -1,4 +1,5 @@
 ﻿using MySportBets.UserInterface.Factory;
+using MySportBets.UserInterface.View;
 using MySportBets.UserInterface.ViewModel;
 
 namespace MySportBets.UserInterface.Services
@@ -18,7 +19,6 @@ namespace MySportBets.UserInterface.Services
         public void Run()
         {
             AuthViewModel auth = viewFactory.Build<AuthViewModel>();
-
             dialogService.ShowDialog(auth);
         }
     }

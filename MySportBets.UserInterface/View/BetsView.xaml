@@ -1,0 +1,40 @@
+﻿<Window x:Class="MySportBets.UserInterface.View.BetsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MySportBets.UserInterface.View"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Сделать ставку" Height="415.668" Width="550"
+        >
+    <Grid Margin="0,0,2,4">
+        <DataGrid x:Name="SportEvents" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" 
+                  Height="100" VerticalAlignment="Top" Width="470" Margin="10,10,5,0"
+                  IsReadOnly="True" CanUserAddRows="False"
+                  AutoGenerateColumns="False"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=SportEventId}"/>
+                <DataGridHyperlinkColumn Header="Дата" Binding="{Binding Path=DateEvent}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Path=Category}"/>
+                <DataGridTextColumn Header="Команда 1" Binding="{Binding Path=Team1}"/>
+                <DataGridTextColumn Header="Команда 2" Binding="{Binding Path=Team2}"/>
+                <DataGridTextColumn Header="Coef1" Binding="{Binding Path=Coef1}"/>
+                <DataGridTextColumn Header="Coef2" Binding="{Binding Path=Coef2}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+    </Grid>
+</Window>

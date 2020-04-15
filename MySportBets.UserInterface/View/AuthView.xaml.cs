@@ -1,7 +1,7 @@
 ﻿using MySportBets.UserInterface.Services;
 using MySportBets.UserInterface.ViewModel;
+using System;
 using System.Windows;
-
 
 namespace MySportBets.UserInterface.View
 {
@@ -9,14 +9,12 @@ namespace MySportBets.UserInterface.View
     {
         public AuthView()
         {
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
-
         }
         AuthViewModel IView<AuthViewModel>.DataContext
         {
             get => base.DataContext as AuthViewModel;
             set => base.DataContext = value;
-        }   
+        }
     }
 }

@@ -41,6 +41,10 @@ namespace MySportBets.Ui.Services
 
             _kernel.Bind<IView<RegistrationNewUserViewModel>>().To<RegistrationNewUserView>().InTransientScope();
 
+            _kernel.Bind<IView<AccountViewModel>>().To<AccountView>().InTransientScope();
+
+            _kernel.Bind<IView<BetsViewModel>>().To<BetsView>().InTransientScope();
+
 
             return this;
         }

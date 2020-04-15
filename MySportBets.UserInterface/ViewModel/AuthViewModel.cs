@@ -4,12 +4,13 @@ using MySportBets.UserInterface.Services;
 using MySportBets.UserInterface.View;
 using NLog;
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 
 namespace MySportBets.UserInterface.ViewModel
 {
-    public class AuthViewModel : BaseViewModel
+    public class AuthViewModel : BaseViewModel 
     {
         private readonly IViewFactory viewFactory;
 
@@ -19,14 +20,16 @@ namespace MySportBets.UserInterface.ViewModel
         private ICommand _showMainMenuView;
         private ICommand _showRegistrationView;
 
+        public EventHandler CloseHandler;
+
         public AuthViewModel(IDialogService dialogService, IViewFactory viewFactory) : base(dialogService)
         {
             this.viewFactory = viewFactory;
 
             _showMainMenuView = new RelayCommand((x) => ShowMainMenu());
             _showRegistrationView = new RelayCommand((x) => ShowRegistation());
-
         }
+
         public string UserLogin
         {
             get => _userLogin;
@@ -60,7 +63,6 @@ namespace MySportBets.UserInterface.ViewModel
                 return _showRegistrationView;
             }
         }
-
         private void ShowMainMenu()
         {
             if (_userLogin != null && _userPassword != null)
@@ -78,6 +80,11 @@ namespace MySportBets.UserInterface.ViewModel
                     {
                         UserMainMenuViewModel viewModel = viewFactory.Build<UserMainMenuViewModel>();
                         DialogService.ShowDialog<UserMainMenuViewModel>(viewModel);
+                    }
+                    else
+                    {
+                        Logger logger = LogManager.GetCurrentClassLogger();
+                        logger.Error("Ошибка!");
                     }
                 }
             }
